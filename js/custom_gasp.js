@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     var t = gsap.timeline()
     var screenWidth = window.innerWidth;
     var screenHeight = window.innerHeight;
+    
     gsap.registerPlugin(SplitText);
+
+    window.scrollTo({
+        top: 0,
+    });
 
     t.from(".packet-1", {
         y: -1000,
@@ -218,6 +223,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         stagger: 0.05,
         ease: "power2.out"
     });
+    
 });
 
 

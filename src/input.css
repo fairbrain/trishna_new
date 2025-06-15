@@ -12,6 +12,11 @@ body{
 
 header ul li {
     color: #3f3f3f;
+    
+}
+header ul li a{
+    font-size: 16px;
+    
 }
 
 .all-packet-main-section{
