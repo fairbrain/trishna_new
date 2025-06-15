@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+    window.scrollTo(0, 0);
     var t = gsap.timeline()
     var screenWidth = window.innerWidth;
     var screenHeight = window.innerHeight;
-    
+
+    const sections = document.querySelectorAll("section");
+
     gsap.registerPlugin(SplitText);
 
-    window.scrollTo({
-        top: 0,
-    });
 
     t.from(".packet-1", {
         y: -1000,
@@ -193,13 +193,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: "back.out"
     })
 
-    t.to(".hero-container",{
-        borderRadius:"60px 60px 0 0",
-        
-    },"<")
+    t.to(".hero-container", {
+        borderRadius: "60px 60px 0 0",
 
-    t.to(".hero-container-section",{
-        padding:"15px 15px 0 15px"
+    }, "<")
+
+    t.to(".hero-container-section", {
+        padding: "15px 15px 0 15px"
     })
 
 
@@ -221,9 +221,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
         y: 30,
         // duration: 1,
         stagger: 0.05,
-        ease: "power2.out"
-    });
-    
+        ease: "power2.out",
+        onComplete: () => {
+            sections.forEach(element => {
+                element.classList.remove("hidden");
+            });
+        }
+    }, "<");
+
+
+
+
 });
 
 
