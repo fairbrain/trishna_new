@@ -230,9 +230,105 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }, "<");
 
 
+    // card
+    let m = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".about-us-main", // element that triggers the animation
+            start: "top 50%",           // when the top of trigger hits 80% of viewport
+            toggleActions: "play none none none", // play on enter only
+            markers: false              // set to true if you want to see debug markers
+        }
+    });
 
 
+    m.from(".card", {
+        opacity: 0,
+        stagger: 0.5,
+        y: -50,
+        ease: "back.out",
+    })
+
+
+    let w = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".our_product_main_section", // element that triggers the animation
+            start: "top 80%",           // when the top of trigger hits 80% of viewport
+            toggleActions: "play none none none", // play on enter only
+            markers: false              // set to true if you want to see debug markers
+        }
+    });
+
+
+    w.from(".basket-heading", {
+        scale: 0,
+        stagger: 0.5
+    })
+
+    w.from(".basket-img", {
+        opacity: 0,
+        y: -70,
+        duration: 1,
+        stagger: 0.5,
+        ease: "back.out"
+
+    }, "<")
+
+
+
+    let f = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".choose_us", // element that triggers the animation
+            start: "top 70%",           // when the top of trigger hits 80% of viewport
+            toggleActions: "play none none none", // play on enter only
+            markers: false              // set to true if you want to see debug markers
+        }
+    });
+
+    f.from(".choose_us_left img", {
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        ease: "back.out",
+        onComplete: () => {
+            gsap.to(".choose_us_pac1", {
+                scale: 0.95,
+                repeat: -1,
+                yoyo: true,
+                duration: 1.04
+            })
+        }
+    })
+    f.from(".choose_us_heading", {
+        opacity: 0,
+        y: -30
+    }, "<")
+    f.from(".list-1", {
+        opacity: 0,
+        y: -30
+    })
+    f.from(".list-2", {
+        opacity: 0,
+        y: -30
+    })
+    f.from(".list-3", {
+        opacity: 0,
+        y: -30
+    })
+    f.from(".list-4", {
+        opacity: 0,
+        y: -30
+    })
+    f.from(".list-5", {
+        opacity: 0,
+        y: -30
+    })
+    f.from(".list-6", {
+        opacity: 0,
+        y: -30
+    })
 });
+
+
 
 
 // gsap.registerPlugin(SplitText);
